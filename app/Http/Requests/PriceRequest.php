@@ -41,6 +41,14 @@ class PriceRequest extends FormRequest
         ];
     }
 
+
+    /**
+     * @author Kareem Lorenzana
+     * @created 2022-07-22
+     * @params
+     * @desc Get the validation messages that apply to the request.
+     * @return array
+     */
     public function messages(){
         return [
             'construction_type.required' => 'El uso de contruccion es un parametro requerido',

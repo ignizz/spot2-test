@@ -17,10 +17,16 @@ class SpotController extends Controller
         $this->catastroData = $catastroData;
     }
 
+    /**
+     * @author Kareem Lorenzana
+     * @created 2022-07-22
+     * @desc return the avergage, min and max of list the constructions
+     * @params string $zipCode, string $aggregate, App\Http\Requests\PriceRequest $request
+     * 
+     */
     public function priceM2($zipCode, $aggregate, PriceRequest $request){
         
         $data = $this->catastroData->checkPrice($zipCode);
-
         
         $data = $data->select(
             "codigo_postal",
@@ -70,13 +76,3 @@ class SpotController extends Controller
 
     }
 }
-
-/**
- * select codigo_postal, round((valor_suelo/superficie_terreno)- subsidio )
-* as price_unit,round((valor_suelo/superficie_construccion)- subsidio )
-* as price_unit_construction from catastro_data
-* where codigo_postal ='07800' and superficie_terreno > 0 and superficie_construccion > 0
-*								   group by codigo_postal,price_unit, price_unit_construction
-								  
- * 
- */
