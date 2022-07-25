@@ -19,4 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/price-m2/zip-codes/{zipCode}/aggregate/{aggregate}', [SpotController::class, "priceM2"]);
+Route::get('/price-m2/zip-codes/{zipCode}/aggregate/{aggregate}', [SpotController::class, "priceM2"])->middleware('client');
